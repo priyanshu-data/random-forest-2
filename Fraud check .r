@@ -3,18 +3,16 @@ library(MASS)
 library(caret)
 FraudCheck <- read.csv(file.choose())
 View(FraudCheck)
-str(FraudCheck)
+str(FraudCheck)###taxable income is in integer we need to convert it into factor for the ease of implementing.
 summary(FraudCheck)
 hist(FraudCheck$Taxable.Income)
-
-
 
 ####Adding visualising parameter to histogram#####
 hist(FraudCheck$Taxable.Income, main = "Sales of Companydata",xlim = c(0,100000),
      breaks=c(seq(40,60,80)), col = c("blue","red", "green","violet"))
 
 Risky_Good <- ifelse(FraudCheck$Taxable.Income<= 30000, "Risky", "Good")
-Fraud <- data.frame(FraudCheck,Risky_Good) # Removed the column Taxable income and adding the Column Risky_Good i.e. categorical.
+Fraud <- data.frame(FraudCheck,Risky_Good) # adding the Column Risky_Good i.e. categorical.
 FC = Fraud[,c(1:7)]
 View(FC)
 table(FC$Risky_Good) 
@@ -61,7 +59,7 @@ pred2 <- predict(rf1, test)
 confusionMatrix(pred2, test$Risky_Good) # 100 % accuracy on test data 
 
 # no of nodes of trees
-hist(treesize(rf1), main = "No of Nodes for the trees", col = "green")
+hist(treesize(rf1), main = "No of Nodes for the trees", col = "yellow")
 # Majority of the trees has an average number of more than 80 nodes. 
 
 # Variable Importance 
