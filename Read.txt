@@ -1,0 +1,11 @@
+FRAUD CHECK
+Steps included to do a fraud check using random forest are as follows:
+1)The basic steps is the EDA process
+2)Start with the data partition
+3)Prediction and confusion matrix to check the accuracy of the data(train and test data).
+4)Some plotting to check whether tree is varying or not.
+5)If it is not varying ,then tune the random forest model -mtry.
+6)After tuning do some prediction and confusion matrix.
+7)You can also check the nodes.
+8)Also can check which variables are important in the model.
+9)Lastly,multi-dimensional scaling.
